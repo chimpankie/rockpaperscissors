@@ -5,6 +5,34 @@ function getComputerChoice(){
     return computerChoice
 }
 
+
+function game(){
+    let playerScore = 0
+    let computerScore = 0
+    for (let i = 0; i < 5; i++){
+        let playerHand = prompt("What do you choose? Rock, Paper, or Scissors?");
+        let computerHand = getComputerChoice();
+        if (gameRound(playerHand, computerHand)==="win"){
+            console.log("You win, you badass.");
+            ++playerScore;
+        } else if (gameRound(playerHand, computerHand)==="lose"){
+            console.log("Hard luck.");
+            ++computerScore;
+        } else {
+            console.log("Draw!");
+        }
+
+
+    }
+    if (playerScore > computerScore){
+        alert("You Win! Brewski Beer me.");
+    } else {
+        alert("You were beaten by an idiot computer.");
+    }
+            
+ }
+
+
 function gameRound(playerChoice, computerChoice){
     let playerHand = playerChoice.toLowerCase();
     let computerHand = computerChoice.toLowerCase(); 
@@ -12,24 +40,24 @@ function gameRound(playerChoice, computerChoice){
         return "draw";
     } else if (playerHand === "rock"){
         if (computerHand === "scissors"){
-            return true;
+            return "win";
         }
         if (computerHand === "paper"){
-            return false;
+            return "lose";
         }
     } else if (playerHand ==="paper"){
         if (computerHand === "rock"){
-            return true;
+            return "win";
         }
         if (computerHand === "scissors"){
-            return false;
+            return "lose";
         }
     } else if (playerHand === "scissors"){
         if (computerHand === "rock"){
-            return false;
+            return "lose";
         }
         if (computerHand === "paper"){
-            return true;
+            return "win";
         }
     }
 }
