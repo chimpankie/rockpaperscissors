@@ -1,0 +1,17 @@
+.weaponMenu {
+    display: flex;
+    justify-content: center;
+}
+
+.weapon {
+    width: 200px;
+    height: 200px;
+    margin: 40px;
+    border: dashed blue; 
+    text-align: center;
+    line-height: 200px; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+    background-color: white;
+
+}

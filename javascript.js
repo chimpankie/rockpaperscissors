@@ -5,13 +5,21 @@ function getComputerChoice(){
     return computerChoice
 }
 
+let weaponChoice = document.querySelectorAll('.weapon');
+weaponChoice.forEach(function(weaponChoice) {
+    weaponChoice.addEventListener('click', function() {
+    game(weaponChoice.textContent);
 
-function game(){
-    let playerScore = 0
-    let computerScore = 0
-    for (let i = 0; i < 5; i++){
-        let playerHand = prompt("What do you choose? Rock, Paper, or Scissors?");
+    }
+    )
+    });
+
+
+function game(weaponChoice){
         let computerHand = getComputerChoice();
+        console.log(computerHand);
+        let playerHand = weaponChoice;
+        console.log(playerHand);
         if (gameRound(playerHand, computerHand)==="win"){
             console.log("You win, you badass.");
             ++playerScore;
@@ -19,17 +27,9 @@ function game(){
             console.log("Hard luck.");
             ++computerScore;
         } else {
+            console.log(gameRound(playerHand, computerHand));
             console.log("Draw!");
-        }
-
-
-    }
-    if (playerScore > computerScore){
-        alert("You Win! Brewski Beer me.");
-    } else {
-        alert("You were beaten by an idiot computer.");
-    }
-            
+        }  
  }
 
 
