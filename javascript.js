@@ -5,21 +5,12 @@ function getComputerChoice(){
     return computerChoice
 }
 
-let weaponChoice = document.querySelectorAll('.weapon');
-weaponChoice.forEach(function(weaponChoice) {
-    weaponChoice.addEventListener('click', function() {
-    game(weaponChoice.textContent);
-
-    }
-    )
-    });
 
 
-function game(weaponChoice){
+
+function game(player){
         let computerHand = getComputerChoice();
-        console.log(computerHand);
-        let playerHand = weaponChoice;
-        console.log(playerHand);
+        let playerHand = player;
         if (gameRound(playerHand, computerHand)==="win"){
             console.log("You win, you badass.");
             ++playerScore;
@@ -61,3 +52,13 @@ function gameRound(playerChoice, computerChoice){
         }
     }
 }
+
+let weaponChoice = document.querySelectorAll('.weapon');
+weaponChoice.forEach((weapon) => {
+    weapon.addEventListener('click', () => {
+        console.log(weapon.value);
+        console.log(weapon.textContent);
+        let weapon2 = weapon.value;
+        game(weapon2);
+    })
+})
