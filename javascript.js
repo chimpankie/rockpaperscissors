@@ -7,6 +7,13 @@ function getComputerChoice(){
 
 
 
+let playerScore = 0;
+let computerScore = 0;
+
+let playerCounter = document.querySelector('#playerScore');
+let computerCounter = document.querySelector('#computerScore');
+    
+
 
 function game(player){
         let computerHand = getComputerChoice();
@@ -14,9 +21,11 @@ function game(player){
         if (gameRound(playerHand, computerHand)==="win"){
             console.log("You win, you badass.");
             ++playerScore;
+            playerCounter.textContent = playerScore;
         } else if (gameRound(playerHand, computerHand)==="lose"){
             console.log("Hard luck.");
             ++computerScore;
+            computerCounter.textContent = computerScore
         } else {
             console.log(gameRound(playerHand, computerHand));
             console.log("Draw!");
