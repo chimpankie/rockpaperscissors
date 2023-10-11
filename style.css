@@ -1,3 +1,18 @@
+body {
+    background-color: black;
+    color: cyan;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.page {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.status { 
+    font-size:x-large
+}
 .weaponMenu {
     display: flex;
     justify-content: center;
@@ -7,11 +22,27 @@
     width: 200px;
     height: 200px;
     margin: 40px;
-    border: dashed blue; 
+    border: dashed cyan; 
     text-align: center;
     line-height: 200px; 
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: large;
-    background-color: white;
+    background-color: black;
+    color: cyan;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 
+}
+
+.weapon:hover {
+    color: white;
+    box-shadow: 0 0px 30px white;
+}
+.scoreRow {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    font-size: large;
+    
 }
