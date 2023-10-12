@@ -12,30 +12,55 @@ let computerScore = 0;
 
 let playerCounter = document.querySelector('#playerScore');
 let computerCounter = document.querySelector('#computerScore');
-    
+
+let playerDiv = document.querySelector('.player');
+let computerDiv = document.querySelector('.computer');
+let result = document.querySelector('.outcome');
+
+
 
 
 function game(player){
         let computerHand = getComputerChoice();
         let playerHand = player;
         if (gameRound(playerHand, computerHand)==="win"){
-            console.log("You win, you badass.");
+            const myTimeout = setTimeout(function(){
+                computerDiv.textContent = computerHand;
+                result.textContent = 'YOU WIN';
+                return;
+            }, 1000);
             ++playerScore;
             playerCounter.textContent = playerScore;
         } else if (gameRound(playerHand, computerHand)==="lose"){
-            console.log("Hard luck.");
+            const myTimeout = setTimeout(function(){
+                computerDiv.textContent = computerHand;
+                result.textContent = 'YOU LOSE';
+                return;
+            }, 1000)
             ++computerScore;
             computerCounter.textContent = computerScore
         } else {
+            const myTimeout = setTimeout(function(){
+                computerDiv.textContent = computerHand;
+                result.textContent = 'YOU DRAW';
+                return;
+            }, 1000)
             console.log(gameRound(playerHand, computerHand));
-            console.log("Draw!");
+         
         }  
  }
+
+
 
 
 function gameRound(playerChoice, computerChoice){
     let playerHand = playerChoice.toLowerCase();
     let computerHand = computerChoice.toLowerCase(); 
+    playerDiv.textContent = playerHand;
+    result.textContent = "Waiting...";
+    computerDiv.textContent = 'Calculating...'
+   
+
     if (playerHand === computerHand){
         return "draw";
     } else if (playerHand === "rock"){
