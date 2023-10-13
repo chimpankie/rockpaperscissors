@@ -17,6 +17,17 @@ let playerDiv = document.querySelector('.player');
 let computerDiv = document.querySelector('.computer');
 let result = document.querySelector('.outcome');
 
+let restartBtn = document.querySelector('#restartBtn');
+
+restartBtn.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById("overlay").style.display = "none";
+    playerCounter.textContent = "0";
+    computerCounter.textContent = "0";
+    result.textContent = "You must win five times to succeed";
+})
+
 
 
 
@@ -28,30 +39,39 @@ function game(player){
                 computerDiv.textContent = computerHand;
                 result.textContent = 'YOU WIN';
                 return;
-            }, 1000);
+            }, 500);
             ++playerScore;
             playerCounter.textContent = playerScore;
+            if (playerScore === 5){
+                whoWins("You have defeated AI! CHATGPT is no more.");
+            }
         } else if (gameRound(playerHand, computerHand)==="lose"){
             const myTimeout = setTimeout(function(){
                 computerDiv.textContent = computerHand;
                 result.textContent = 'YOU LOSE';
                 return;
-            }, 1000)
+            }, 500)
             ++computerScore;
             computerCounter.textContent = computerScore
+            if (computerScore === 5){
+                whoWins("You have failed humanity. CHATGPT rules supreme.");
+            }
         } else {
             const myTimeout = setTimeout(function(){
                 computerDiv.textContent = computerHand;
                 result.textContent = 'YOU DRAW';
                 return;
-            }, 1000)
+            }, 500)
             console.log(gameRound(playerHand, computerHand));
          
         }  
  }
 
-
-
+function whoWins(winner){
+    console.log(winner);
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("finalResult").textContent = winner;
+}
 
 function gameRound(playerChoice, computerChoice){
     let playerHand = playerChoice.toLowerCase();

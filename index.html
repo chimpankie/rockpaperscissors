@@ -5,13 +5,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="overlay">
+    <div id="overlayContent">
+            <div id="finalResult"></div>
+            <button id="restartBtn">Play Again?</button>
+    </div>
+</div>
 <div class="page">
     <div class="status">Choose. Your. Weapon.</div>
     <div class="weaponChoices">
         <div>Your Weapon:&nbsp;<span class="player"></span></div>
         <div>Computer Weapon:&nbsp;<span class="computer">?</span></div>
     </div>
-    <div class="outcome"></div>
+    <div class="outcome">You must win five times to succeed.</div>
     <div class="weaponMenu">
         <button class="weapon" value="rock">Rock</p>
         <button class="weapon" value="paper">Paper</p>
